@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Compensacion Mi Niña Hermosa</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Indie+Flower&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fce7ec;
+            color: #d9534f;
+            overflow-x: hidden;
+        }
+        .title-font {
+            font-family: 'Indie Flower', cursive;
+            letter-spacing: 1px;
+        }
+        .screen {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .screen.active {
+            display: flex;
+            opacity: 1;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f5b7b1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4 relative selection:bg-pink-200">
+
+    <!-- Elementos decorativos de fondo -->
+    <div class="absolute top-6 left-6 flex flex-col items-center pointer-events-none floating hidden md:flex opacity-85">
+        <div class="text-3xl">🎈</div>
+        <div class="text-3xl -mt-2">🎈</div>
+        <div class="text-2xl -mt-2">💗</div>
+    </div>
+    <div class="absolute top-6 right-6 flex flex-col items-center pointer-events-none floating hidden md:flex opacity-85" style="animation-delay: 2s;">
+        <div class="text-3xl">🎈</div>
+        <div class="text-3xl -mt-2">🎈</div>
+        <div class="text-2xl -mt-2">💖</div>
+    </div>
+
+    <main class="w-full max-w-2xl bg-[#fffafb]/95 backdrop-blur-md rounded-3xl shadow-xl p-6 md:p-10 flex flex-col items-center justify-center relative border-4 border-[#f9d5dc] min-h-[520px]">
+
+        <!-- ================= PANTALLA 1: PREGUNTA INICIAL ================= -->
+        <section id="screen-1" class="screen active flex-col items-center text-center w-full">
+            <h1 class="title-font text-3xl md:text-5xl font-bold text-[#e06d77] mb-4">
+                Feliz casi mesiversario mi niña
+            </h1>
+            
+            <div class="my-4 relative">
+                <div class="w-40 h-40 mx-auto flex items-center justify-center bg-[#fff0f3] rounded-full shadow-inner border-2 border-[#fad2e1] p-2 floating overflow-hidden">
+                    <img src="carta.jpg" alt="Snoopy con carta" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div class="absolute -top-2 -right-4 text-2xl floating">❤️</div>
+                <div class="absolute bottom-2 -left-4 text-xl floating" style="animation-delay: 1s;">💖</div>
+            </div>
+
+            <p class="text-lg md:text-xl font-semibold text-[#d9777f] mb-6">
+                ¿Quieres ver el regalo que hice para ti?
+            </p>
+
+            <div class="flex items-center justify-center gap-6 w-full">
+                <button onclick="goToScreen('screen-love')" class="px-8 py-3 bg-[#e06d77] hover:bg-[#d05c67] text-white font-bold rounded-full shadow-lg transform hover:scale-105 transition-all text-lg cursor-pointer">
+                    Sí
+                </button>
+                <button onclick="goToScreen('screen-sad')" class="px-8 py-3 bg-[#f5b7b1] hover:bg-[#e8a39d] text-white font-bold rounded-full shadow-lg transition-all text-lg cursor-pointer">
+                    No
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 2: SNOOPY TRISTE ================= -->
+        <section id="screen-sad" class="screen flex-col items-center text-center w-full">
+            <h1 class="title-font text-3xl md:text-5xl font-bold text-[#e06d77] mb-4">
+                Pero lo hice para ti...
+            </h1>
+            
+            <div class="my-4 relative">
+                <div class="w-40 h-40 mx-auto flex items-center justify-center bg-[#fff0f3] rounded-full shadow-inner border-2 border-[#fad2e1] p-2 overflow-hidden">
+                    <img src="triste.jpg" alt="Snoopy triste" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div class="absolute -top-1 right-2 text-xl">💧</div>
+            </div>
+
+            <p class="text-lg md:text-xl font-semibold text-[#d9777f] mb-6">
+                ¿Le das una oportunidad?
+            </p>
+
+            <div class="flex items-center justify-center gap-6 w-full">
+                <button onclick="goToScreen('screen-love')" class="px-10 py-3 bg-[#e06d77] hover:bg-[#d05c67] text-white font-bold rounded-full shadow-lg transform hover:scale-105 transition-all text-lg cursor-pointer">
+                    Sí
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 3: AMOR ================= -->
+        <section id="screen-love" class="screen flex-col items-center text-center w-full">
+            <h1 class="title-font text-3xl md:text-5xl font-bold text-[#e06d77] mb-4">
+                Te amo mi amoor!!!
+            </h1>
+            
+            <div class="my-4 relative">
+                <div class="w-40 h-40 mx-auto flex items-center justify-center bg-[#fff0f3] rounded-full shadow-inner border-2 border-[#fad2e1] p-2 floating overflow-hidden">
+                    <img src="corazon.jpg" alt="Snoopy amor" class="w-full h-full object-cover rounded-full">
+                </div>
+            </div>
+
+            <p class="text-lg md:text-xl font-semibold text-[#d9777f] mb-8">
+                Este sitio web es solo para ti!
+            </p>
+
+            <button onclick="goToScreen('screen-menu')" class="px-10 py-3 bg-[#e06d77] hover:bg-[#d05c67] text-white font-bold rounded-full shadow-lg transform hover:scale-105 transition-all text-lg cursor-pointer">
+                Siguiente
+            </button>
+        </section>
+
+        <!-- ================= PANTALLA 4: MENÚ DE LOS 4 SNOOPY ================= -->
+        <section id="screen-menu" class="screen flex-col items-center text-center w-full">
+            <h1 class="title-font text-3xl md:text-5xl font-bold text-[#e06d77] mb-6">
+                Regalos para ti!
+            </h1>
+            
+            <p class="text-sm md:text-base text-[#d9777f] mb-6 font-medium">
+                Haz clic en uno de los Snoopy para descubrir tu sorpresa 🤍
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mb-6">
+                <button onclick="goToScreen('gift-1')" class="bg-white/90 hover:bg-white border-2 border-[#fad2e1] rounded-2xl p-3 flex flex-col items-center shadow-md transform hover:-translate-y-2 transition-all group cursor-pointer">
+                    <div class="w-20 h-20 bg-[#fff0f3] rounded-full flex items-center justify-center mb-2 group-hover:scale-105 transition-transform p-1 overflow-hidden">
+                        <img src="audifonos.jpg" alt="Snoopy 1" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="text-xs md:text-sm font-bold text-[#d9777f]">Nuestra Música</span>
+                </button>
+
+                <button onclick="goToScreen('gift-2')" class="bg-white/90 hover:bg-white border-2 border-[#fad2e1] rounded-2xl p-3 flex flex-col items-center shadow-md transform hover:-translate-y-2 transition-all group cursor-pointer">
+                    <div class="w-20 h-20 bg-[#fff0f3] rounded-full flex items-center justify-center mb-2 group-hover:scale-105 transition-transform p-1 overflow-hidden">
+                        <img src="rosas.jpg" alt="Snoopy 2" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="text-xs md:text-sm font-bold text-[#d9777f]">Rosas y Amor</span>
+                </button>
+
+                <button onclick="goToScreen('gift-3')" class="bg-white/90 hover:bg-white border-2 border-[#fad2e1] rounded-2xl p-3 flex flex-col items-center shadow-md transform hover:-translate-y-2 transition-all group cursor-pointer">
+                    <div class="w-20 h-20 bg-[#fff0f3] rounded-full flex items-center justify-center mb-2 group-hover:scale-105 transition-transform p-1 overflow-hidden">
+                        <img src="beso.jpg" alt="Snoopy 3" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="text-xs md:text-sm font-bold text-[#d9777f]">Mis Fotos</span>
+                </button>
+
+                <button onclick="goToScreen('gift-4-step1')" class="bg-white/90 hover:bg-white border-2 border-[#fad2e1] rounded-2xl p-3 flex flex-col items-center shadow-md transform hover:-translate-y-2 transition-all group cursor-pointer">
+                    <div class="w-20 h-20 bg-[#fff0f3] rounded-full flex items-center justify-center mb-2 group-hover:scale-105 transition-transform p-1 overflow-hidden">
+                        <img src="amor.jpg" alt="Snoopy 4" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="text-xs md:text-sm font-bold text-[#d9777f]">Sorpresa</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= DETALLE 1: MÚSICA CON REPRODUCTOR PERSONALIZADO ================= -->
+        <section id="gift-1" class="screen flex-col items-center w-full">
+            <div class="flex items-center justify-between w-full mb-4">
+                <button onclick="goToScreen('screen-menu')" class="px-4 py-1.5 bg-[#f5b7b1] hover:bg-[#e8a39d] text-white text-sm font-bold rounded-full shadow cursor-pointer">
+                    ← Volver
+                </button>
+                <h2 class="title-font text-2xl md:text-3xl font-bold text-[#e06d77]">Te dedico esta canción</h2>
+                <div class="w-16"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full items-center">
+                <!-- Reproductor de Música Estilizado -->
+                <div class="bg-white border-2 border-[#fad2e1] rounded-2xl p-4 shadow-md flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-2xl overflow-hidden shadow-md border-2 border-[#fad2e1] mb-3 relative">
+                        <img src="images (1).jpg" alt="Portada de la canción" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <h3 class="font-bold text-sm text-[#e06d77] mb-1">Nuestra Canción Especial</h3>
+                    <p class="text-xs text-gray-400 mb-3">Reproduciendo con amor 🤍</p>
+
+                    <audio id="audioPlayer" src="Mon Amour.mpeg"></audio>
+
+                    <div class="w-full bg-gray-200 rounded-full h-2 mb-3 cursor-pointer overflow-hidden" id="progressBarContainer" onclick="seekAudio(event)">
+                        <div id="progressBar" class="bg-[#e06d77] h-2 w-0 transition-all"></div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <button onclick="skipTime(-10)" class="px-3 py-1.5 bg-[#f5b7b1] hover:bg-[#e8a39d] text-white text-xs font-bold rounded-full shadow cursor-pointer transition-transform hover:scale-105">
+                            -10s
+                        </button>
+                        <button id="playPauseBtn" onclick="togglePlay()" class="w-12 h-12 bg-[#e06d77] hover:bg-[#d05c67] text-white text-lg rounded-full shadow-lg flex items-center justify-center cursor-pointer transition-transform hover:scale-105">
+                            ▶
+                        </button>
+                        <button onclick="skipTime(10)" class="px-3 py-1.5 bg-[#f5b7b1] hover:bg-[#e8a39d] text-white text-xs font-bold rounded-full shadow cursor-pointer transition-transform hover:scale-105">
+                            +10s
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-[#fff0f3] border-2 border-[#fad2e1] rounded-2xl p-4 shadow-md text-left flex flex-col justify-center">
+                    <p class="text-xs md:text-sm text-[#c05c65] font-medium leading-relaxed">
+                        Te dedico esta canción porque cada palabra me hace pensar en ti y en todo lo que siento cuando estamos juntos. Porque hay canciones que simplemente tienen algo de esa persona especial que hace que quieras compartirlas con ella. 🤍
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DETALLE 2: FLORES Y FRASES ================= -->
+        <section id="gift-2" class="screen flex-col items-center w-full">
+            <div class="flex items-center justify-between w-full mb-2">
+                <button onclick="goToScreen('screen-menu')" class="px-4 py-1.5 bg-[#f5b7b1] hover:bg-[#e8a39d] text-white text-sm font-bold rounded-full shadow cursor-pointer">
+                    ← Volver
+                </button>
+                <h2 class="title-font text-xl md:text-2xl font-bold text-[#e06d77]">Te mereces flores en tu día especial</h2>
+                <div class="w-16"></div>
+            </div>
+
+            <div class="relative w-full flex flex-col items-center py-1">
+                <div class="w-24 h-24 bg-[#fff0f3] rounded-full flex items-center justify-center border-2 border-[#fad2e1] shadow-inner mb-3 floating overflow-hidden">
+                    <img src="ramo.jpg" alt="Snoopy flores" class="w-full h-full object-cover rounded-full">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 w-full text-xs md:text-sm">
+                    <div class="bg-white/95 border border-[#fad2e1] rounded-xl p-2.5 shadow-sm text-[#c05c65] font-medium">
+                        🌸 Te amo de aquí hasta el infinito y mucho más.
+                    </div>
+                    <div class="bg-white/95 border border-[#fad2e1] rounded-xl p-2.5 shadow-sm text-[#c05c65] font-medium">
+                        🌹 Eres mi persona favorita en todo el mundo.
+                    </div>
+                    <div class="bg-white/95 border border-[#fad2e1] rounded-xl p-2.5 shadow-sm text-[#c05c65] font-medium">
+                        🌷 Contigo he creado mis recuerdos más bonitos.
+                    </div>
+                    <div class="bg-white/95 border border-[#fad2e1] rounded-xl p-2.5 shadow-sm text-[#c05c65] font-medium">
+                        💐 Eres mi lugar seguro y mi paz.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DETALLE 3: FOTOS (COMPLETAS CON TEXTO SOBRE LA FOTO) ================= -->
+        <section id="gift-3" class="screen flex-col items-center w-full">
+            <div class="flex items-center justify-between w-full mb-2">
+                <button onclick="goToScreen('screen-menu')" class="px-4 py-1.5 bg-[#f5b7b1] hover:bg-[#e8a39d] text-white text-sm font-bold rounded-full shadow cursor-pointer">
+                    ← Volver
+                </button>
+                <h2 class="title-font text-2xl md:text-3xl font-bold text-[#e06d77]">Mis fotos favoritas &lt;3</h2>
+                <div class="w-16"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 w-full max-h-[360px] overflow-y-auto p-2">
+                <!-- Foto 1 -->
+                <div class="bg-white p-2 rounded shadow-md border border-[#fad2e1] transform -rotate-1 hover:rotate-0 transition-transform flex flex-col items-center">
+                    <div class="w-full h-40 bg-[#fff5f7] rounded overflow-hidden relative flex items-center justify-center">
+                        <img src="muack.jpeg" alt="Foto 1" class="w-full h-full object-contain">
+                        <!-- Texto superpuesto sobre la foto -->
+                        <div class="absolute bottom-0 inset-x-0 bg-black/40 backdrop-blur-[2px] py-1 text-center">
+                            <span class="text-xs font-bold text-white title-font">Te amo &lt;3</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Foto 2 -->
+                <div class="bg-white p-2 rounded shadow-md border border-[#fad2e1] transform rotate-1 hover:rotate-0 transition-transform flex flex-col items-center">
+                    <div class="w-full h-40 bg-[#fff5f7] rounded overflow-hidden relative flex items-center justify-center">
+                        <img src="te amo.jpeg" alt="Foto 2" class="w-full h-full object-contain">
+                        <!-- Texto superpuesto sobre la foto -->
+                        <div class="absolute bottom-0 inset-x-0 bg-black/40 backdrop-blur-[2px] py-1 text-center">
+                            <span class="text-xs font-bold text-white title-font">Mi vida</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Foto 3 -->
+                <div class="bg-white p-2 rounded shadow-md border border-[#fad2e1] transform -rotate-1 hover:rotate-0 transition-transform flex flex-col items-center">
+                    <div class="w-full h-40 bg-[#fff5f7] rounded overflow-hidden relative flex items-center justify-center">
+                        <img src="juntos.jpeg" alt="Foto 3" class="w-full h-full object-contain">
+                        <!-- Texto superpuesto sobre la foto -->
+                        <div class="absolute bottom-0 inset-x-0 bg-black/40 backdrop-blur-[2px] py-1 text-center">
+                            <span class="text-xs font-bold text-white title-font">Por siempre</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DETALLE 4 - PASO 1 ================= -->
+        <section id="gift-4-step1" class="screen flex-col items-center text-center w-full">
+            <div class="flex items-center justify-between w-full mb-4">
+                <button onclick="goToScreen('screen-menu')" class="px-4 py-1.5 bg-[#f5b7b1] hover:bg-[#e8a39d] text-white text-sm font-bold rounded-full shadow cursor-pointer">
+                    ← Volver
+                </button>
+                <div class="w-16"></div>
+                <div class="w-16"></div>
+            </div>
+
+            <h1 class="title-font text-xl md:text-2xl font-bold text-[#e06d77] mb-4">
+                Gracias por soportarme y amarme tanto aqui esta todo lo que las palabras no pueden expresar🤍
+            </h1>
+            
+            <div class="my-4 relative">
+                <div class="w-40 h-40 mx-auto flex items-center justify-center bg-[#fff0f3] rounded-full shadow-inner border-2 border-[#fad2e1] p-2 floating overflow-hidden">
+                    <img src="corazon.jpg" alt="Snoopy pastel" class="w-full h-full object-cover rounded-full">
+                </div>
+            </div>
+
+            <p class="text-sm md:text-base text-[#d9777f] mb-6 font-medium">
+                Pide lo que quieras mi amor yo soy capaz de regalarte hasta la luna🤍✨
+            </p>
+
+            <button onclick="goToScreen('gift-4-step2')" class="px-8 py-3 bg-[#e06d77] hover:bg-[#d05c67] text-white font-bold rounded-full shadow-lg transform hover:scale-105 transition-all text-lg cursor-pointer">
+                Te amo miss Alison de Pinel🤍
+            </button>
+        </section>
+
+        <!-- ================= DETALLE 4 - PASO 2 ================= -->
+        <section id="gift-4-step2" class="screen flex-col items-center w-full">
+            <div class="flex items-center justify-between w-full mb-2">
+                <button onclick="goToScreen('screen-menu')" class="px-4 py-1.5 bg-[#f5b7b1] hover:bg-[#e8a39d] text-white text-sm font-bold rounded-full shadow cursor-pointer">
+                    ← Menú
+                </button>
+                <h2 class="title-font text-2xl font-bold text-[#e06d77]">Feliz casi mesiversario!</h2>
+                <div class="w-16"></div>
+            </div>
+
+            <div class="bg-white/95 border-4 border-dashed border-[#fad2e1] rounded-3xl p-6 shadow-inner w-full max-h-[380px] overflow-y-auto text-left relative">
+                <div class="absolute top-4 right-4 text-2xl">💖</div>
+                <h3 class="title-font text-xl md:text-2xl font-bold text-[#e06d77] mb-3">
+                    Te amo mi bella novia!
+                </h3>
+                <p class="text-xs md:text-sm text-[#7f5539] leading-relaxed mb-3">
+                    Espero que te guste mi pequeña sorpresa mi amor. Hoy quiero recordarte lo especial que eres y lo bonito que es tenerte en mi vida. Deseo de corazón que me perdones cada tonteria que he hecho espero hacerte sonreír cada dia hasta el fin del infinito, cumplire nuestros sueños que poco a poco se haran realidad y recuerda que si el mundo te da la espalda yo estare a tu lado para abrazarte,besarte, decirte que te amo y que todo estara bien mientras este yo a tu lado, I LOVE YOU MISS ALISON DE PINEL.
+                </p>
+                <p class="text-xs md:text-sm text-[#7f5539] leading-relaxed mb-3">
+                    Espero que nunca olvides lo mucho que vales, yo te amo tal cual y como eres y pasare mis dias recordandote lo mucho que vales para mi y lo mucho que te amo. Que sigas creciendo, aprendiendo y cumpliendo cada una de esas metas que llevas en el corazón. Mereces todo lo bonito que la vida pueda regalarte.
+                </p>
+                <p class="text-xs md:text-sm text-[#7f5539] leading-relaxed">
+                    Que todo lo malo no sea para terminar porque sin ti baby estoy perdido quedaria como un niño perdido sin saber que hacer por eso te pido algo egoista que nunca te separes de mi lado porque contigo aprendi la felicidad, el amor, le cariño, el valor de uno mismo y a valorar a otros, contigo aprendi a no rendirme, aprendi que el amor a veces cuesta pero uno apesar de todo sigue amando, contigo aprendi a ser amado por la niña mas hermosa del mundo; gracias baby por seguir amandome y elegir sin arrepentirte de nada, Te amo mi bomboncito tierno🤍     
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function goToScreen(screenId) {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            const targetScreen = document.getElementById(screenId);
+            if (targetScreen) {
+                targetScreen.classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Lógica del reproductor de música personalizado
+        const audio = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressBarContainer = document.getElementById('progressBarContainer');
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = '❚❚';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = '▶';
+            }
+        }
+
+        function skipTime(seconds) {
+            audio.currentTime += seconds;
+        }
+
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = progressPercent + '%';
+            }
+        });
+
+        function seekAudio(event) {
+            const width = progressBarContainer.clientWidth;
+            const clickX = event.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        }
+
+        audio.addEventListener('ended', () => {
+            playPauseBtn.textContent = '▶';
+            progressBar.style.width = '0%';
+        });
+    </script>
+</body>
+</html>
